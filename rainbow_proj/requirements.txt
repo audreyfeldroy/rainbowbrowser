@@ -1,0 +1,1 @@
+django-startcbv==0.2.3

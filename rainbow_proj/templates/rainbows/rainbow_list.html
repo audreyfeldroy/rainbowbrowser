@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Rainbows
+{% endblock %}
+
+{% block content %}
+<h1>All Rainbows</h1>
+
+{% if latest_rainbow_list %}
+    <ul>
+    {% for rainbow in latest_rainbow_list %}
+        <li><a href="{% url rainbow_detail rainbow.slug %}">{{ rainbow.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No rainbows are available.</p>
+{% endif %}
+{% endblock %}
