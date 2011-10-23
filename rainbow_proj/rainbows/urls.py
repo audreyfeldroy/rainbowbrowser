@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic import DetailView, ListView
 from rainbows.models import Rainbow
+from rainbows.views import RainbowPDEView
 
 urlpatterns = patterns('rainbows.views',
     url(regex=r'^$',
@@ -14,6 +15,10 @@ urlpatterns = patterns('rainbows.views',
         view=DetailView.as_view(
             model=Rainbow,
             template_name='rainbows/rainbow_detail.html'),
+        name='rainbow_detail',
+    ),
+    url(regex=r'^(?P<slug>[-\w]+)\.pde$',
+        view=RainbowPDEView,
         name='rainbow_detail',
     ),
 )
